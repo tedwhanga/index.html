@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Quote Generator</title>
+    <style>
+        /* General styling for the body in dark mode */
+        body {
+            font-family: 'UnifrakturMaguntia', cursive;
+            background-color: #1c1c1c; /* Dark background */
+            color: #ffffff; /* Light text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffa500; /* Orange for title */
+        }
+
+        /* Styling for the quote text */
+        #quote {
+            font-size: 1.8rem;
+            color: #e0e0e0; /* Light grey text for quotes */
+            background: rgba(255, 255, 255, 0.1); /* Translucent box */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 600px;
+            border: 2px solid #ffa500; /* Orange border */
+            box-shadow: 0 0 15px rgba(255, 165, 0, 0.7); /* Orange shadow */
+        }
+
+        /* Styling for the button */
+        button {
+            padding: 10px 20px;
+            background: #ffa500; /* Orange button */
+            color: #1c1c1c; /* Dark text on button */
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #1c1c1c; /* Inverted colors on hover */
+        }
+    </style>
+    <!-- Import Google Fonts for variety -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Orbitron&family=Lobster&family=Open+Sans&family=Roboto&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Dark Mode Quote Generator</h1>
+    <p id="quote"></p>
+    <button onclick="displayRandomQuote()">Generate New Quote</button>
+
+    <script>
+        // Random Quote Generator
+        const quotes = [
+            "The only limit to our realization of tomorrow is our doubts of today. – Franklin D. Roosevelt",
+            "In the end, it's not the years in your life that count. It's the life in your years. – Abraham Lincoln",
+            "The best way to predict the future is to create it. – Peter Drucker",
+            "Do not wait to strike till the iron is hot; but make it hot by striking. – William Butler Yeats",
+            "Whether you think you can or think you can’t, you’re right. – Henry Ford",
+            "Life is what happens when you're busy making other plans. – John Lennon",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill"
+        ];
+
+        // Array of fonts (some Google Fonts, some web-safe)
+        const fonts = [
+            "'UnifrakturMaguntia', cursive",   // Gothic style
+            "'Orbitron', sans-serif",          // Futuristic
+            "'Lobster', cursive",              // Fancy
+            "'Open Sans', sans-serif",         // Clean and modern
+            "'Roboto', sans-serif",            // Classic and readable
+            "'Playfair Display', serif"        // Elegant and classy
+        ];
+
+        // Function to generate a random quote
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        // Function to generate a random font
+        function getRandomFont() {
+            const randomFontIndex = Math.floor(Math.random() * fonts.length);
+            return fonts[randomFontIndex];
+        }
+
+        // Function to display the random quote and apply a random font
+        function displayRandomQuote() {
+            document.getElementById('quote').innerText = getRandomQuote();
+            document.getElementById('quote').style.fontFamily = getRandomFont();
+        }
+
+        // Display a quote and font when the page loads
+        displayRandomQuote();
+    </script>
+</body>
+</html>
