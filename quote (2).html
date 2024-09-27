@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      background-color: #333;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    #quote {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #555;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div id="quote"></div>
+  <button onclick="newQuote()">Get New Quote</button>
+  
+  <script>
+    const quotes = [
+      "The only limit to our realization of tomorrow is our doubts of today. – Franklin D. Roosevelt",
+      "In the end, it's not the years in your life that count. It's the life in your years. – Abraham Lincoln",
+      "The best way to predict the future is to create it. – Peter Drucker",
+      "Do not wait to strike till the iron is hot; but make it hot by striking. – William Butler Yeats",
+      "Whether you think you can or think you can’t, you’re right. – Henry Ford",
+      "Life is what happens when you're busy making other plans. – John Lennon",
+      "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill"
+    ];
+    
+    function newQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerHTML = quotes[randomIndex];
+    }
+    
+    window.onload = newQuote;
+  </script>
+</body>
+</html>
